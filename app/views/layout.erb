@@ -1,18 +1,37 @@
 <!doctype html>
 <html>
   <head>
-    <title>Week 4</title>
+    <title>Fwitter</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/style.css">
   </head>
-  <body>
-
+  <style>
+    body {
+   background-image: url("http://www.freelargeimages.com/wp-content/uploads/2014/12/Black_background.jpg"); 
+      text-align: center; 
+}
+  </style> 
+<body>
+    <nav>
+      <ul>
+        <% if logged_in? %>
+            <li>Welcome, <%= current_user.username %></li>
+            <li><a href="/tweet">Post a Tweet!</a></li>
+            <li><a href="/logout">Logout</a></li>
+        <% else %>
+            <li class="btn btn-default navbar-btn"><a href="/login">Login</a></li>
+            <li class="btn btn-default navbar-btn"><a href="/users">Sign Up</a></li>
+        <% end %>
+      </ul>
+    </nav>
     <div class="container">
-      <h1>Welcome to Fwitter!</h1>
-      <%= yield %> 
-      
-      
-    </div>
+
+
+  <font color="White"> <h1>Welcome to Fwitter</h1></font>
+      <img src="http://orig11.deviantart.net/6454/f/2013/119/9/6/cute_naruto_by_anniiskittles-d63jqpt.gif" alt="naruto" class="img-circle">
+ 
+      <%= yield %>    
+  </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
   </body>
